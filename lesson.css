@@ -1,0 +1,189 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222;
+  --primary-color: #3109c0;
+  --card-bg: #f0f0f0;
+  --transition-speed: 0.4s;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --primary-color: #4dabf7;
+  --card-bg: #1f1f1f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 15px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  transition: background var(--transition-speed);
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.navbar a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3em;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("https://images.unsplash.com/photo-1584697964191-3c94a64f9b2e") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding-top: 60px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 2.8em;
+  animation: slideDown 1s ease-in-out;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin: 15px 0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.btn {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Sections */
+section {
+  padding: 80px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.courses, .teachers {
+  background-color: var(--card-bg);
+}
+
+.course-container, .teacher-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.course-card, .teacher-card {
+  background: var(--bg-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.4s, box-shadow 0.3s;
+}
+
+.course-card:hover, .teacher-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.teacher-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Contact */
+.contact form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact input, .contact textarea {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.footer {
+  background: var(--card-bg);
+  padding: 15px;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
